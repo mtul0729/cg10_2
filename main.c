@@ -6,11 +6,11 @@ struct char_con{
 typedef struct char_con char_con;
 int main() {
     char x;
-    char_con charCon[100];
+    char_con charCon[200];
     unsigned count=0;
     //输入字符
     scanf("%c",&x);
-    while (x!='\n'){
+    while (x!=10&&x!=13){
         int i;
         for (i = 0; i < count; ++i) {
             if(x==charCon[i].c){
@@ -25,9 +25,9 @@ int main() {
         }
         scanf("%c",&x);
     }
-    //指针排序
+    //通过指针排序
     char_con *p[count];
-    for (int i = 0; i < count; ++i) {//向用指针指向它们
+    for (int i = 0; i < count; ++i) {//用指针指向它们
         p[i]=charCon+i;
     }
     //冒泡排序
@@ -43,11 +43,11 @@ int main() {
     }
     int i;
     for (i = 0; i < count-1; ++i) {
-        printf("%c-%d",p[i]->c,p[i]->times);
+        printf("%c-%u",p[i]->c,p[i]->times);
         if((i+1)%4==0)printf("\n");
         else printf(" ");
     }
-    printf("%c-%d",p[i]->c,p[i]->times);//最后一行行末只换行
+    printf("%c-%u",p[i]->c,p[i]->times);//最后一行行末只换行
     printf("\n");
     return 0;
 }
