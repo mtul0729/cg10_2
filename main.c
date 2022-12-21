@@ -13,7 +13,7 @@ int main() {
     unsigned count = 0;
     //输入字符
     scanf("%c", &x);
-    while (x != 10 && x != 13) {
+    while (x != 10) {
         for (i = 0; i < count; ++i) {
             if (x == charCon[i].c) {
                 charCon[i].times++;
@@ -52,3 +52,4 @@ int main() {
     printf("\n");
     return 0;
 }
+
