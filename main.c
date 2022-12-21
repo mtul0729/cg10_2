@@ -8,12 +8,12 @@ typedef struct char_con char_con;
 
 int main() {
     char x;
+    int i;
     char_con charCon[200];
     unsigned count = 0;
     //输入字符
     scanf("%c", &x);
     while (x != 10 && x != 13) {
-        int i;
         for (i = 0; i < count; ++i) {
             if (x == charCon[i].c) {
                 charCon[i].times++;
@@ -29,11 +29,11 @@ int main() {
     }
     //通过指针排序
     char_con *p[count];
-    for (int i = 0; i < count; ++i) {//用指针指向它们
+    for (i = 0; i < count; ++i) {//用指针指向它们
         p[i] = charCon + i;
     }
     //冒泡排序
-    for (int i = 0; i < count - 1; ++i) {
+    for (i = 0; i < count - 1; ++i) {
         for (int j = 0; j < count - i - 1; ++j) {
             if (p[j]->times < p[j + 1]->times) {
                 char_con *t;
@@ -43,7 +43,6 @@ int main() {
             }
         }
     }
-    int i;
     for (i = 0; i < count - 1; ++i) {
         printf("%c-%u", p[i]->c, p[i]->times);
         if ((i + 1) % 4 == 0)printf("\n");
